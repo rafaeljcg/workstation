@@ -2,12 +2,7 @@ package 'tree' do
   action :install
 end
 
-file '/etc/motd' do
-  content "Property of Rafael Godoy
-IPADDRESS: #{node['ipaddress']}
-HOSTNAME : #{node['hostname']}
-MEMORY   : #{node['memory']['total']}
-CPU      : #{node['cpu']['0']['mhz']}
-"
+template '/etc/motd' do
+  source 'motd'
 end
 
